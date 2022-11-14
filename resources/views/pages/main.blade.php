@@ -7,33 +7,33 @@
 
                     <div class="mb-6">
                         <label for="text" class="block mb-2 text-sm font-medium text-white">Product Name</label>
-                        <input type="text" id="text" name="product_name" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Name" required="">
+                        <input type="text" id="text" name="product_name" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Name" >
                     </div>
 
                     <div class="mb-6">
                         <label for="text" class="block mb-2 text-sm font-medium text-white">Quantity</label>
-                        <input type="text" id="text" name="product_quantity" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Quantity" required="">
+                        <input type="text" id="text" name="product_quantity" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Quantity" >
                     </div>
 
 
                     <div class="mb-6">
                         <label for="text" class="block mb-2 text-sm font-medium text-white">Net</label>
-                        <input type="text" id="text" name="product_netweight" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Net" required="">
+                        <input type="text" id="text" name="product_netweight" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Net" >
                     </div>
 
                     <div class="mb-6">
                         <label for="text" class="block mb-2 text-sm font-medium text-white">Size</label>
-                        <input type="text" id="text" name="product_size" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Size" required="">
+                        <input type="text" id="text" name="product_size" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Size" >
                     </div>
 
                     <div class="mb-6">
                         <label for="text" class="block mb-2 text-sm font-medium text-white">Karat</label>
-                        <input type="text" id="text" name="product_carrot" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Karat Amount" required="">
+                        <input type="text" id="text" name="product_carrot" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Karat Amount" >
                     </div>
 
                     <div class="mb-6">
                         <label for="text" class="block mb-2 text-sm font-medium text-white">Extra Label</label>
-                        <input type="text" id="text" name="product_extra" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Extra Label" required="">
+                        <input type="text" id="text" name="product_extra" class="bg-gray-50  text-gray-900 text-sm block w-full p-2.5 outline-none" placeholder="Enter Extra Label" >
                     </div>
 
                     <button type="submit" name="makeBarcode" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
@@ -72,23 +72,30 @@
                                 <label for="Barcode Number" class="border-2 border-black">Barcode</label>
                                 <div class="border-2 border-black">{{ $item['product_barcode_number'] }}</div>
 
+                                @if(!empty($item['product_name']))
                                 <label for="Product Name" class="border-2 border-black">Name</label>
                                 <div class="border-2 border-black">{{ $item['product_name'] }}</div>
-
+                                @endif
+                                @if(!empty($item['product_quantity']))
                                 <label for="Product Quantity" class="border-2 border-black">Quantity</label>
                                 <div class="border-2 border-black">{{ $item['product_quantity'] }}</div>
-
+                                @endif
+                                @if(!empty($item['product_netweight']))
                                 <label for="Product Net Weight" class="whitespace-nowrap border-2 border-black">Net Weight</label>
                                 <div class="border-2 border-black">{{ $item['product_netweight'] }}</div>
-
+                                @endif
+                                @if(!empty($item['product_size']))
                                 <label for="Product Size" class="border-2 border-black">Size</label>
                                 <div class="border-2 border-black">{{ $item['product_size'] }}</div>
-
+                                @endif
+                                @if(!empty($item['product_carrot']))
                                 <label for="Karat" class="border-2 border-black">Karat</label>
                                 <div class="border-2 border-black">{{ $item['product_carrot'] }}</div>
-
+                                @endif
+                                @if(!empty($item['product_extra']))
                                 <label for="Product Extra" class="border-2 border-black">Extra</label>
                                 <div class="border-2 border-black">{{ $item['product_extra'] }}</div>
+                                @endif
 
                             </div>
                             <div class="h-fit print:hidden">
