@@ -58,15 +58,17 @@
 
             @if (session()->has('barcode'))
                 @if (session()->get('barcode'))
+                    @php
+                        $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+                    @endphp
                 @foreach (session()->get('barcode') as $key => $item)
-                        @php
-                            $generator = new Picqer\Barcode\BarcodeGeneratorJPG();
-                            file_put_contents('barcode.jpg', $generator->getBarcode($item['product_barcode_number'], $generator::TYPE_CODE_128));
-                        @endphp
 
                         <div class="grid bg-slate-600 print:bg-white p-3 h-fit text-white print:text-black">
                             <div class="grid place-items-start">
-                                <img src="{{ asset('barcode.jpg') }}" alt="Barcode" class="w-full">
+                                @php
+                                    echo '<img class="w-full bg-white" src="data:image/png;base64,' . base64_encode($generator->getBarcode($item['product_barcode_number'], $generator::TYPE_CODE_128)) . '">';
+                                @endphp
+
                             </div>
                             <div class="grid w-full h-fit grid-cols-2">
                                 <label for="Barcode Number" class="border-2 border-black">Barcode</label>
